@@ -90,7 +90,7 @@ int main()
   cin >> word;
   cout << '"' << word << '"' << " och ";
   cin >> word;
-  cout << '"' << word << '"' << '.'
+  cout << '"' << word << '"' << '.';
 
   return 0;
 }
