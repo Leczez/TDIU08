@@ -3,6 +3,20 @@
 
 using namespace std;
 
+
+  void printtable(int celsius, int kelvin, int fahrenheit, int reaumur, int starting_value, int final_value)
+  {
+    cout << "Celsius     Kelvin  Farenheit   Réaumur" << endl
+         << "---------------------------------------" << endl;
+    for(int i = starting_value; i < final_value; i++)
+    {
+      
+      cout << celsius << "     " << kelvin << "      " << fahrenheit << "      " << reaumur << endl;
+    }
+
+
+  }
+
   int starting_value{};
   int final_value{};
 
