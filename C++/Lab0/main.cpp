@@ -77,12 +77,12 @@ int main()
   cout << "Skriv in en textrad: ";
   getline(cin,word);
   cout << "Du skrev in " << '"' << word << '"' << '.' << endl;
-  Clear_Trash();
+
 
   cout << "Skriv in en till textrad: ";
   getline(cin,word);
   cout << "Du skrev in " << '"' << word << '"' << '.' << endl;
-  Clear_Trash();
+
 
   cout << "Skriv in en rad med tre ord: ";
   cin >> word;
