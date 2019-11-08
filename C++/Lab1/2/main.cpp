@@ -11,10 +11,10 @@ using namespace std;
     string text{};
 
 
-    //cin >> buffer;
-    for(;;) // det går att använda (!cin.eof())
+
+    for(;;)
     {
-      if(cin.eof())
+      if(cin.eof()) // kollar om end of line kommit
       {
         break;
       }
