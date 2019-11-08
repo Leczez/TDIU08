@@ -10,7 +10,15 @@ using namespace std;
 
   }
 
+<<<<<<< HEAD
   void
+=======
+  void Analyze_Data()
+  {
+
+    
+  }
+>>>>>>> 50b2bc28424ca6400c1bcd181ea6c51e736902f7
 
 
 
