@@ -5,12 +5,12 @@ using namespace std;
 
   string Get_Data()
   {
-
+    return Getline(cin);
 
 
   }
 
-  void 
+  void
 
 
 
