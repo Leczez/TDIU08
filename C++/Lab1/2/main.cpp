@@ -14,7 +14,7 @@ using namespace std;
     cout << "Mata in texten:" << endl;
     while(cin.get(buffer))
     {
-      if(buffer /= '\n' and cin.peek() = '\0' )
+      if(buffer /= '\n' and cin.peek() == '\0' )
       {
         cout << "buffer = " << buffer << endl;
         text.append(1,buffer);
