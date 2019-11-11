@@ -11,18 +11,20 @@ using namespace std;
     string text{};
 
 
-
-    for(;;)
+    cout << "Mata in texten:" << endl;
+    while(cin.get(buffer))
     {
-      if(cin.eof()) // kollar om end of line kommit
-      {
-        break;
+      if(buffer = '\n'){
+
       }
-      cin >> buffer;
-      cout << buffer << endl;
-      text.append(1,buffer);
-      cout << text << endl << counter << endl;
-      counter++;
+      else
+      {
+        cout << "buffer = " << buffer << endl;
+        //cout << buffer << endl;
+        text.append(1,buffer);
+        //cout << text << endl << counter << endl;
+      } counter++;
+
     }
 
     return text;
@@ -35,6 +37,7 @@ using namespace std;
   {
 
 
+    cout << counter << endl;
   }
 
 
