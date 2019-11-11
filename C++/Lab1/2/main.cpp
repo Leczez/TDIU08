@@ -14,16 +14,12 @@ using namespace std;
     cout << "Mata in texten:" << endl;
     while(cin.get(buffer))
     {
-      if(buffer = '\n'){
-
-      }
-      else
+      if(buffer /= '\n' and cin.peek() = '\0' )
       {
         cout << "buffer = " << buffer << endl;
-        //cout << buffer << endl;
         text.append(1,buffer);
-        //cout << text << endl << counter << endl;
-      } counter++;
+        counter++;
+      }
 
     }
 
