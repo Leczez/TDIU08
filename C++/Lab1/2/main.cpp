@@ -40,6 +40,12 @@ using namespace std;
     return word_count;
   }
 
+  string Find_Word(string text, int i)
+  {
+
+
+  }
+
   string Shortest_Word(string text)
   {
   string short_word{};
@@ -47,13 +53,9 @@ using namespace std;
 
   for(int i{}; i <= counter; i++)
   {
-    if((text[i] != '\n' and text[i] != '\0') or text[i] != ' ')
+    if(text[i] == '\n' or text[i] == ' ')
     {
-      cout << text[i] << endl;
-      temp.append(1,text[i]);
-    }
-    else
-    {
+      cout << "in else" << endl;
       if(short_word.empty())
       {
         cout << "is empty" << endl;
@@ -66,6 +68,17 @@ using namespace std;
         temp.clear();
       }
     }
+    else
+    {
+      cout << text[i] << endl;
+      temp.append(1,text[i]);
+    }
+  }
+  if(short_word.empty())
+  {
+    cout << "empty" << endl;
+    short_word = temp;
+    temp.clear();
   }
   cout << "Shortest Word: " << short_word << endl;
   return short_word;
