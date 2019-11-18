@@ -13,9 +13,11 @@ int N_faculty(int n)
   }
 }
 
+void Clear_Trash();
 
-
-
+double Add_Int_Double(int Number1, double Number2);
+double Add_Double_Int(double Number1, int Number2);
+void swap(double &number1, int &number2);
 
 int Get_Choice()
 {
@@ -24,40 +26,25 @@ int Get_Choice()
 
   cout << "1. Beräkna N-fakultet" << endl;
   cout << "2. Addera 2 Heltal" << endl;
-  cout << "3. Addera ett Heltal/Flyttal med ett Flyttal/Heltal" << endl;
-  cout << "4. Addera 2 Flyttal" << endl;
-  cout << "5. Byta värde på ett Heltal och ett Flyttal" << endl;
-  cout << "6. Avsluta programmet" << endl;
+  cout << "3. Addera ett Heltal med ett Flyttal" << endl;
+  cout << "4. Addera ett Flyttal med ett Heltal" << endl;
+  cout << "5. Addera 2 Flyttal" << endl;
+  cout << "6. Byta värde på ett Heltal och ett Flyttal" << endl;
+  cout << "7. Avsluta programmet" << endl;
   cout << "Skriv in vilken operation du vill utföra: ";
   cin >> choice;
 
   return choice;
 }
 
-double Add_2_Double(double Number1, double Number2)
-{
-  return Number1 + Number2;
-}
+double Add_2_Numbers(double Number1, double Number2);
 
-int Add_2_Integers(int Number1, int Number2)
-{
-  return Number1 + Number2;
-}
-
-void Swap(int Number1, double double1)
-{
-  double buffer{};
-
-  buffer = double1;
-  double1 = Number1;
-  Number1 = buffer;
-
-  cout << "Heltal = " << Number1 << endl << "Flyttal = " << double1 << endl;
-
-}
+int Add_Int(int number1, int number2);
 
 int main()
 {
+
+  bool run{true};
   int choice{};
   int integer1{};
   int integer2{};
@@ -66,9 +53,10 @@ int main()
   double double1{};
   double double2{};
 
-  choice = Get_Choice();
-  while(true)
+  while(run)
   {
+    choice = Get_Choice();
+
     switch (choice)
     {
       case 1:
@@ -76,35 +64,82 @@ int main()
         cin >> integer1;
         summa = N_faculty(integer1);
         cout << "Fakulteten för " << integer1 << " är = " << summa << endl;
+        break;
       case 2:
         cout << "Skriv in talen som ska adderas: ";
         cin >> integer1 >> integer2;
-        summa = Add_2_Integers(integer1, integer2);
+        summa = Add_Int(integer1, integer2);
         cout << "Summan av talen är: " << summa << endl;
+        break;
       case 3:
         cout << "Skriv in talen som ska adderas: ";
+        cin >> integer1 >> double2;
+        summa1 = Add_Int_Double(integer1, double2);
+        cout << "Summan av talen är: " << summa1;
+        break;
 
       case 4:
         cout << "Skriv in talen som ska adderas: ";
-        cin >> double1 >> double2;
-        summa1 = Add_2_Double(double1, double2);
-        cout << "Summan av talen är: " << summa1 << endl;
+        cin >> double1 >> integer1;
+        summa1 = Add_Double_Int(double1, integer1);
+        cout << "Summan av talen är: " << summa1;
+        break;
+
       case 5:
+        cout << "Skriv in talen som ska adderas: ";
+        cin >> double1 >> double2;
+        summa1 = Add_2_Numbers(double1, double2);
+        cout << "Summan av talen är: " << summa1 << endl;
+        break;
+      case 6:
         cout << "Skriv in ett Heltal och ett Flyttal: ";
         cin >> integer1 >> double1;
-        Swap(integer1, double1);
+        swap(double1, integer1);
+        cout << "Resultatet är: " << integer1 << " " << double1;
 
-
-
-      case 6:
+        break;
+      case 7:
+        run = false;
         break;
     }
     cout << endl;
-    choice = Get_Choice();
+    Clear_Trash();
+
   }
 
-
-
-
   return 0;
+}
+
+void swap(double &number1, int &number2)
+{
+  double buffer{};
+  buffer = number1;
+  number1 = number2;
+  number2 = buffer;
+}
+
+void Clear_Trash()
+  {
+    string trash{};
+    getline(cin,trash);
+  }
+
+double Add_Int_Double(int Number1, double Number2)
+{
+  return Number1 + Number2;
+}
+double Add_Double_Int(double Number1, int Number2)
+{
+  return Number1 + Number2;
+}
+
+int Add_Int(int number1, int number2)
+{
+  return number1 + number2;
+}
+
+
+double Add_2_Numbers(double Number1, double Number2)
+{
+  return Number1 + Number2;
 }
