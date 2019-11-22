@@ -1,7 +1,7 @@
 #include <iostream>
 #include <iomanip>
 #include <vector>
-#include <struct>
+//#include <struct>
 
 using namespace std;
 
@@ -12,22 +12,35 @@ struct contestant
   string club{};
 };
 
-vector<contestant> get_contestants();
-
+void get_contestants(vector<contestant> &contestants);
 
 int main()
 {
-  vector<contestant> Contestants{get_contestants()};
+  vector<contestant> contestants{};
+  get_contestants(contestants);
 
 
 
   return 0;
 }
 
-vector<contestant> get_contestants()
+void get_contestants(vector<contestant> &contestants)
 {
   string buffer{};
-  while(cin.get())
+  contestant person{};
 
+  cout << "Anmälning, mata in deltagare:" << endl;
 
+  while(cin >> buffer)
+  {
+    person.firstname = buffer;
+
+    cin >> buffer;
+    person.lastname = buffer;
+
+    getline(cin,buffer);
+    person.club = buffer;
+
+    contestants.push_back(person);
+  }
 }
