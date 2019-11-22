@@ -2,7 +2,7 @@
 #include <iomanip>
 using namespace std;
 
-int N_faculty(int n)
+int N_faculty(int const n)
 {
   if(n == 1)
   {
@@ -22,7 +22,6 @@ void swap(double &number1, int &number2);
 int Get_Choice()
 {
   int choice{};
-
 
   cout << "1. Beräkna N-fakultet" << endl;
   cout << "2. Addera 2 Heltal" << endl;

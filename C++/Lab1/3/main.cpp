@@ -12,7 +12,7 @@ int main()
   int total_amount_of_characters{};
 
   char character{};
-  while(cin >> character)
+  while(cin.get(character))
   {
     if(isalpha(character))
     {

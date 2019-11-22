@@ -15,10 +15,11 @@ int main()
   char character{};
   string word{};
 
-  /*
+
   cout << "Skriv in ett heltal: ";
   cin >> number;
-  Clear_Trash();
+  cin.ignore(1000, '\n');
+
   cout << "Du skrev in heltalet: " << number << endl;
 
   cout << "Skriv in 5 heltal: ";
@@ -73,11 +74,10 @@ int main()
   cin >> word >> character;
   cout << "Du skrev in " << '"' << word << '"' << " och " << "'" << character << "'." << endl;
   Clear_Trash();
-  */
+
   cout << "Skriv in en textrad: ";
   getline(cin,word);
   cout << "Du skrev in " << '"' << word << '"' << '.' << endl;
-
 
   cout << "Skriv in en till textrad: ";
   getline(cin,word);
