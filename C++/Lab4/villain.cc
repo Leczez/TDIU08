@@ -1,11 +1,12 @@
 #include "villain.h"
-
+#include <iostream>
 
 vector<int> get_interests()
 {
   cout << "Input the interests of the villain: ";
   int counter{};
   int interest{};
+  vector<int> interests{};
   while(counter < 10)
   {
     cin >> interest;
@@ -15,12 +16,14 @@ vector<int> get_interests()
       counter++;
     }
   }
+  return interests;
 }
 
-enum get_species()
+species get_species()
 {
+  cout << "Input the species of the villain: ";
   cout << "1 Human \n, 2 Elf \n, 3 Orc\n, 4 Halfling\n, 5 Ogre\n, 6 Lizardman";
-  cout << "Input the number corresponding to the villains species: "
+  cout << "Input the number corresponding to the villains species: ";
   int choice{};
   cin >> choice;
 
@@ -49,7 +52,8 @@ enum get_species()
 }
 
 villain get_data()
-{ villain da_villain{};
+{
+  villain da_villain{};
   cout << "Input the name of the villain: ";
   cin >> da_villain.name;
   cout << "Input the age of the villain: ";
@@ -60,12 +64,12 @@ villain get_data()
   cin >> da_villain.weight;
   cout << "Input the hair colour of the villain: ";
   cin >> da_villain.hair_colour;
-  cout << "Input the species of the villain: ";
-  da_villain.species = get_species();
-  cout << "Input the eye colour of the villain: ";
-  cin >> da_villain.eye_colour;
 
-  da_villain.interests = get_interests();
+  da_villain.villain_species = get_species();
+  cout << "Input the eye colour of the villain: ";
+  //cin >> da_villain.villain_eye_colour;
+
+//  da_villain.interests = get_interests();
 
   return da_villain;
 
@@ -77,6 +81,7 @@ void new_villain()
 
   the_new_villain = get_data();
 
+  fstream file("register.txt", file.out)
 
 
 }

@@ -4,6 +4,15 @@
 #include <vector>
 
 using namespace std;
+enum species
+{
+  Human, Elf , Orc, Halfling, Ogre, Lizardman
+};
+
+enum eye_colour
+{
+  Blue, Green, Brown, Gray, Yellow, Red, Black, Crazy
+};
 
 struct villain
 {
@@ -12,8 +21,8 @@ struct villain
   char gender{};
   double weight{};
   string hair_colour{};
-  enum species{Human, Elf , Orc, Halfling, Ogre, Lizardman};
-  enum eye_colour{Blue, Green, Brown, Gray, Yellow, Red, Black, Crazy};
+  species villain_species;
+  eye_colour villain_eye_colour;
   vector<int> interests{}; // kommer behöva starta en loop vid 1
 
 };
