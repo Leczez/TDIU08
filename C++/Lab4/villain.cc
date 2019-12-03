@@ -210,5 +210,11 @@ void new_villain()
        << the_new_villain.villain_species << " "
        << the_new_villain.villain_eye_colour << " "
        << the_new_villain.interests << endl;
+  file.close();
+}
+
+villain get_villain()
+{
+
 
 }

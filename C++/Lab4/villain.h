@@ -33,3 +33,5 @@ void new_villain();
 vector<villain> find_match(vector<int> const interests);
 
 void create_matchlist(vector<villain> const villains);
+
+villain get_villain();
