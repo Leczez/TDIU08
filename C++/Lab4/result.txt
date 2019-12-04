@@ -1,0 +1,7 @@
+Britta 20 F 38 Golden Halfling Brown 1 5 6 9 12
+Grace 28 F 68 None Lizardman Red 1 2 3 4 6 7 8
+Inga 55 F 50 Brown Elf Yellow 1 2 10 11
+Kalle 309 M 59 Blonde Elf Gray 1 5 7 9 10 15
+Osvald 21 M 95 Black Orc Black 1 2 5 7 9 10 14
+Stina 18 F 166 None Ogre Crazy 1 3 8 13
+Uno 23 M 101 Red Orc Red 6 10 1 3

@@ -1,8 +1,6 @@
-
-#include "villain.h"
 #include <iostream>
 #include <string>
-
+#include "register_handler.h"
 using namespace std;
 
 vector<int> get_match_interests();
@@ -14,6 +12,7 @@ int main()
 
   cout << "Welcome to the Villain Match-Maker 666!" << endl;
   vector<int> intestines{};
+  sort();
   while(run)
   {
     cout << "Pick an option to perform: \n"
@@ -30,13 +29,11 @@ int main()
         break;
       case 'B':
         intestines = get_match_interests();
+        cout << "get match done" << endl;
         create_matchlist(intestines);
         break;
       case 'C':
         run = false;
-        break;
-      default:
-        cout << "YOU SUCK!" << endl;
         break;
     }
   }
@@ -49,10 +46,14 @@ vector<int> get_match_interests()
   int input{};
   int counter{};
   cout << "Please enter 10 interests between 1 and 15: ";
-  while(counter < 10)
+  while(true)
   {
     cin >> input;
-    if(!(input > 15 or input < 1))
+    if(input == 0 or !(counter < 10))
+    {
+      break;
+    }
+    if(!(input > 15 or input < 0))
     {
       buffer.push_back(input);
       counter++;
@@ -63,7 +64,7 @@ vector<int> get_match_interests()
       {
         cout << "Please input a interest between 1 and 15: ";
         cin >> input;
-        if(!(input > 15 or input < 1))
+        if(!(input > 15 or input < 0))
         {
           buffer.push_back(input);
           counter++;

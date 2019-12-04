@@ -1,8 +1,7 @@
-#include <fstream>
 #include <iostream>
 #include <string>
 #include <vector>
-#include <ostream>
+
 
 using namespace std;
 enum species
@@ -24,13 +23,11 @@ struct villain
   string hair_colour{};
   species villain_species;
   eye_colour villain_eye_colour;
-  vector<int> interests{}; // kommer behöva starta en loop vid 1
+  vector<int> interests{};
 
 };
 
-void new_villain();
-
-vector<villain> find_match(vector<villain> v, vector<int> const interests);
-void create_matchlist(vector<int> const interests);
-
-villain get_villain();
+vector<int> get_interests();
+species get_species();
+eye_colour get_eye_colour();
+villain get_data();
