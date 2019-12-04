@@ -30,8 +30,7 @@ struct villain
 
 void new_villain();
 
-vector<villain> find_match(vector<int> const interests);
-
-void create_matchlist(vector<villain> const villains);
+vector<villain> find_match(vector<villain> v, vector<int> const interests);
+void create_matchlist(vector<int> const interests);
 
 villain get_villain();

@@ -101,6 +101,49 @@ eye_colour get_eye_colour()
 
 }
 
+void operator>>(istream& is, eye_colour & eye)
+{
+  string buffer{};
+  is >> buffer;
+  if(buffer == "Blue")
+  {
+    eye = Blue;
+  }
+  else if(buffer == "Green")
+  {
+    eye = Green;
+  }
+  else if(buffer == "Brown")
+  {
+    eye = Brown;
+  }
+  else if(buffer == "Gray")
+  {
+    eye = Gray;
+  }
+  else if(buffer == "Yellow")
+  {
+    eye = Yellow;
+  }
+  else if(buffer == "Red")
+  {
+    eye = Red;
+  }
+  else if(buffer == "Black")
+  {
+    eye = Black;
+  }
+  else if(buffer == "Crazy")
+  {
+    eye = Crazy;
+  }
+  //return eye;
+  //eye >> is;
+  //return is;
+}
+
+
+
 ostream& operator<<(ostream& os, eye_colour eye)
 {
   switch (eye)
@@ -133,6 +176,40 @@ ostream& operator<<(ostream& os, eye_colour eye)
   return os;
 }
 
+
+void operator>>(istream& is, species & race)
+{
+  string buffer{};
+  is >> buffer;
+  if(buffer == "Human")
+  {
+      race = Human;
+  }
+  else if(buffer == "Elf")
+  {
+    race = Elf;
+  }
+  else if(buffer == "Orc")
+  {
+    race = Orc;
+  }
+  else if(buffer == "Halfling")
+  {
+    race = Halfling;
+  }
+  else if(buffer == "Ogre")
+  {
+    race = Ogre;
+  }
+  else if(buffer == "Lizardman")
+  {
+    race = Lizardman;
+  }
+  //race >> is
+  //return is;
+  //return race;
+}
+
 ostream& operator<<(ostream& os, species race)
 {
   switch (race)
@@ -157,6 +234,18 @@ ostream& operator<<(ostream& os, species race)
       break;
   }
   return os;
+}
+
+ void operator>>(istream& is, vector<int> & interests)
+{
+  int input{};
+  while(is >> input)
+  {
+    interests.push_back(input);
+  }
+  //interests >> is;
+  //return interests;
+  //return is;
 }
 
 ostream& operator<<(ostream& os, vector<int> interests)
@@ -194,6 +283,18 @@ villain get_data()
 
 }
 
+void insert(fstream & file,villain v)
+{
+  file << v.name << " "
+       << v.age << " "
+       << v.gender << " "
+       << v.weight << " "
+       << v.hair_colour << " "
+       << v.villain_species << " "
+       << v.villain_eye_colour << " "
+       << v.interests << endl;
+}
+
 void new_villain()
 {
   villain the_new_villain{};
@@ -201,20 +302,61 @@ void new_villain()
   the_new_villain = get_data();
 
   fstream file{"register.txt", file.app};
+  insert(file,the_new_villain);
 
-  file << the_new_villain.name << " "
-       << the_new_villain.age << " "
-       << the_new_villain.gender << " "
-       << the_new_villain.weight << " "
-       << the_new_villain.hair_colour << " "
-       << the_new_villain.villain_species << " "
-       << the_new_villain.villain_eye_colour << " "
-       << the_new_villain.interests << endl;
   file.close();
 }
 
-villain get_villain()
+villain get_villain(fstream & file)
 {
+  villain v{};
 
+  file >> v.name >> v.age >> v.gender >> v.weight >> v.hair_colour;
+  file >> v.villain_species;
+  file >> v.villain_eye_colour;
+  file >> v.interests;
+  return v;
+}
 
+vector<villain> get_villains()
+{
+  vector<villain> buffer{};
+  fstream file{"register.txt", file.in};
+  while(!file.eof())
+  {
+    buffer.push_back(get_villain(file));
+  }
+  return buffer;
+}
+
+vector<villain> find_match(vector<villain> v, vector<int> const intestines)
+{
+  vector<villain> matched{};
+  for(int i{}; i < v.size(); i++)
+  {
+    for(int j{}; j < v[i].interests.size(); j++)
+    {
+      for(int k{}; k < intestines.size(); k++)
+      {
+       if(intestines[k] == v[i].interests[j])
+       {
+          matched.push_back(v[i]);
+        }
+      }
+    }
+  }
+  return matched;
+}
+
+void create_matchlist(vector<int> const intestines)
+{
+  vector<villain> villains{};
+  vector<villain> matching_villains{};
+  villains = get_villains();
+  matching_villains = find_match(villains, intestines);
+  fstream file{"result.txt", file.out};
+  for(int i{}; i < matching_villains.size(); i++)
+  {
+    insert(file, matching_villains[i]);
+  }
 }
