@@ -101,7 +101,7 @@ eye_colour get_eye_colour()
 
 }
 
-void operator>>(istream& is, eye_colour & eye)
+istream& operator>>(istream& is, eye_colour & eye)
 {
   string buffer{};
   is >> buffer;
@@ -137,9 +137,7 @@ void operator>>(istream& is, eye_colour & eye)
   {
     eye = Crazy;
   }
-  //return eye;
-  //eye >> is;
-  //return is;
+  return is;
 }
 
 
@@ -177,7 +175,7 @@ ostream& operator<<(ostream& os, eye_colour eye)
 }
 
 
-void operator>>(istream& is, species & race)
+istream& operator>>(istream& is, species & race)
 {
   string buffer{};
   is >> buffer;
@@ -205,9 +203,7 @@ void operator>>(istream& is, species & race)
   {
     race = Lizardman;
   }
-  //race >> is
-  //return is;
-  //return race;
+  return is;
 }
 
 ostream& operator<<(ostream& os, species race)
@@ -236,16 +232,14 @@ ostream& operator<<(ostream& os, species race)
   return os;
 }
 
- void operator>>(istream& is, vector<int> & interests)
+ istream& operator>>(istream& is, vector<int> & interests)
 {
   int input{};
   while(is >> input)
   {
     interests.push_back(input);
   }
-  //interests >> is;
-  //return interests;
-  //return is;
+  return is;
 }
 
 ostream& operator<<(ostream& os, vector<int> interests)
