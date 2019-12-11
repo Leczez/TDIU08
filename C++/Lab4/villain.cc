@@ -26,6 +26,7 @@ vector<int> get_interests()
       }
     }
   }
+  cin.clear();
   return interests;
 }
 
@@ -125,4 +126,185 @@ villain get_data()
 
   return da_villain;
 
+}
+
+
+istream& operator>>(istream& is, eye_colour & eye)
+{
+  string buffer{};
+  is >> buffer;
+  if(buffer == "Blue")
+  {
+    eye = Blue;
+  }
+  else if(buffer == "Green")
+  {
+    eye = Green;
+  }
+  else if(buffer == "Brown")
+  {
+    eye = Brown;
+  }
+  else if(buffer == "Gray")
+  {
+    eye = Gray;
+  }
+  else if(buffer == "Yellow")
+  {
+    eye = Yellow;
+  }
+  else if(buffer == "Red")
+  {
+    eye = Red;
+  }
+  else if(buffer == "Black")
+  {
+    eye = Black;
+  }
+  else if(buffer == "Crazy")
+  {
+    eye = Crazy;
+  }
+  return is;
+}
+
+
+
+ostream& operator<<(ostream& os, eye_colour eye)
+{
+  switch (eye)
+  {
+    case Blue:
+      os << "Blue";
+      break;
+    case Green:
+       os << "Green";
+      break;
+    case Brown:
+      os << "Brown";
+      break;
+    case Gray:
+      os << "Gray";
+      break;
+    case Yellow:
+      os << "Yellow";
+      break;
+    case Red:
+      os << "Red";
+      break;
+    case Black:
+      os << "Black";
+      break;
+    case Crazy:
+      os << "Crazy";
+      break;
+  }
+  return os;
+}
+
+
+istream& operator>>(istream& is, species & race)
+{
+  string buffer{};
+  is >> buffer;
+  if(buffer == "Human")
+  {
+      race = Human;
+  }
+  else if(buffer == "Elf")
+  {
+    race = Elf;
+  }
+  else if(buffer == "Orc")
+  {
+    race = Orc;
+  }
+  else if(buffer == "Halfling")
+  {
+    race = Halfling;
+  }
+  else if(buffer == "Ogre")
+  {
+    race = Ogre;
+  }
+  else if(buffer == "Lizardman")
+  {
+    race = Lizardman;
+  }
+  return is;
+}
+
+ostream& operator<<(ostream& os, species race)
+{
+  switch (race)
+  {
+    case Human:
+      os << "Human";
+      break;
+    case Elf:
+       os << "Elf";
+      break;
+    case Orc:
+      os << "Orc";
+      break;
+    case Halfling:
+      os << "Halfling";
+      break;
+    case Ogre:
+      os << "Ogre";
+      break;
+    case Lizardman:
+      os << "Lizardman";
+      break;
+  }
+  return os;
+}
+
+ istream& operator>>(istream& is, vector<int> & interests)
+{
+  stringstream ss;
+  string buffer{};
+  //cout << "NOW GETTING INTERESTS" << endl;
+  getline(is, buffer);
+  //cout << "Buffer = " << buffer << endl;
+  ss << buffer;
+  int input{};
+  while(ss >> input)
+  {
+  //  cout << "Input = " << input << endl;
+    interests.push_back(input);
+  }
+  return is;
+}
+
+ostream& operator<<(ostream& os, vector<int> interests)
+{
+  for(int i: interests)
+  {
+    os << i << " ";
+
+  }
+  return os;
+}
+
+
+void insert(ostream & os, villain v)
+{
+  os << v.name << " "
+       << v.age << " "
+       << v.gender << " "
+       << v.weight << " "
+       << v.hair_colour << " "
+       << v.villain_species << " "
+       << v.villain_eye_colour << " "
+       << v.interests << endl;
+}
+
+istream & get_villain(istream & is, villain & v)
+{
+  is >> v.name >> v.age >> v.gender >> v.weight >> v.hair_colour
+       >> v.villain_species
+       >> v.villain_eye_colour
+       >> v.interests;
+  return is;
 }

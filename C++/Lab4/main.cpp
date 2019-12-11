@@ -12,7 +12,6 @@ int main()
 
   cout << "Welcome to the Villain Match-Maker 666!" << endl;
   vector<int> intestines{};
-  sort();
   while(run)
   {
     cout << "Pick an option to perform: \n"
@@ -26,6 +25,7 @@ int main()
     {
       case 'A':
         new_villain();
+        sort();
         break;
       case 'B':
         intestines = get_match_interests();
@@ -36,6 +36,7 @@ int main()
         run = false;
         break;
     }
+    cout << endl;
   }
   return 0;
 }
@@ -64,7 +65,7 @@ vector<int> get_match_interests()
       {
         cout << "Please input a interest between 1 and 15: ";
         cin >> input;
-        if(!(input > 15 or input < 0))
+        if(!(input > 15 or input < 1))
         {
           buffer.push_back(input);
           counter++;
@@ -73,5 +74,6 @@ vector<int> get_match_interests()
       }
     }
   }
+  cin.clear();
   return buffer;
 }
